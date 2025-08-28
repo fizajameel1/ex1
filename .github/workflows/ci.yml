@@ -31,3 +31,9 @@ jobs:
       run: |
         # You can replace this with pytest if you have tests
         python -m py_compile app.py
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
